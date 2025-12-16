@@ -35,7 +35,7 @@
 ## 🎯 Demo
 
 ### Live Demo
-👉 **[View Live Demo on GitHub Pages](https://your-username.github.io/task-manager/)**
+👉 **[View Live Demo on GitHub Pages](https://alailton-jr.github.io/task-manager/)**
 
 > **Note**: The web demo showcases the UI/UX but lacks some desktop features like native notifications and system tray integration. Download the desktop app for the full experience.
 
