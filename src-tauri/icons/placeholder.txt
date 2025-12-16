@@ -1,0 +1,18 @@
+PLACEHOLDER ICONS - Replace with actual app icons
+
+Required icon files:
+- 32x32.png (32x32 pixels)
+- 128x128.png (128x128 pixels)
+- 128x128@2x.png (256x256 pixels)
+- icon.icns (macOS icon)
+- icon.ico (Windows icon)
+- icon.png (base icon for tray)
+
+You can generate these using:
+1. Create a 1024x1024 PNG master icon
+2. Use an icon generator tool or:
+   - tauri icon command
+   - Online tools like https://icon.kitchen/
+   - Image editing software
+
+For now, Tauri will use default icons during development.

@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary antialiased;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 10%, rgba(16, 185, 129, 0.05) 0%, transparent 20%);
+    background-attachment: fixed;
+  }
+  
+  input, textarea, select {
+    @apply bg-surface/50 border border-surface-lighter/50 rounded-lg px-4 py-2.5 text-text-primary transition-all duration-200;
+    @apply focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 focus:bg-surface-light;
+    @apply placeholder:text-text-tertiary;
+  }
+  
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-lighter/50 rounded-full hover:bg-accent/50 transition-colors;
+  }
+}
+
+@layer utilities {
+  .card {
+    @apply bg-surface/40 backdrop-blur-md border border-white/5 rounded-xl p-5 shadow-lg transition-all duration-300;
+    @apply hover:border-white/10 hover:shadow-xl hover:bg-surface/60;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/20;
+    @apply hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98];
+    @apply rounded-lg px-4 py-2 font-medium transition-all duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface-light text-text-primary border border-white/5;
+    @apply hover:bg-surface-lighter hover:text-white hover:border-white/10;
+    @apply rounded-lg px-4 py-2 font-medium transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply bg-danger/10 text-danger border border-danger/20;
+    @apply hover:bg-danger hover:text-white hover:border-danger;
+    @apply rounded-lg px-4 py-2 font-medium transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply text-text-secondary hover:text-text-primary hover:bg-white/5;
+    @apply rounded-lg px-4 py-2 font-medium transition-all duration-200;
+  }
+
+  .label {
+    @apply text-xs uppercase tracking-wider font-semibold text-text-tertiary mb-1.5 ml-1;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
