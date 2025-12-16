@@ -90,11 +90,11 @@ export const RoutinePage: React.FC = () => {
                         </p>
                       )}
                       <div className="flex items-center gap-3 mt-2 text-xs text-text-tertiary flex-wrap">
-                        <span className="px-2 py-0.5 bg-surface-lighter rounded uppercase font-semibold tracking-wider text-[10px]">
+                        <span className="px-2 py-0.5 bg-surface-lighter rounded uppercase font-bold tracking-wider text-[10px] text-text-primary">
                           {getDayTypeLabel(block)}
                         </span>
-                        <span className="flex items-center gap-1">
-                          <span className="opacity-70">⏰</span>
+                        <span className="flex items-center gap-1 text-text-primary">
+                          <span className="opacity-70 text-text-primary">⏰</span>
                           {block.startTime} - {block.endTime}
                         </span>
                         <span className="text-accent font-medium">

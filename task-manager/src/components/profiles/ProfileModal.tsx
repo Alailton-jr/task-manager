@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom'; // 1. Import createPortal
 import { useStore } from '@/store';
 import type { Profile } from '@/types';
 
 interface ProfileModalProps {
   isOpen: boolean;
   onClose: () => void;
-  profile?: Profile; // If editing existing profile
+  profile?: Profile;
 }
 
 const EMOJI_OPTIONS = ['👤', '💼', '🏠', '🎯', '⭐', '🚀', '💡', '🎨', '📚', '🏆'];
 const COLOR_OPTIONS = [
-  '#10b981', // green
-  '#3b82f6', // blue
-  '#8b5cf6', // purple
-  '#f59e0b', // amber
-  '#ef4444', // red
-  '#ec4899', // pink
-  '#06b6d4', // cyan
-  '#6366f1', // indigo
+  '#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#6366f1',
 ];
 
 export const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose, profile }) => {
@@ -68,9 +62,15 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose, pro
 
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 animate-fade-in">
-      <div className="bg-surface border border-white/10 rounded-2xl shadow-2xl w-full max-w-md mx-4 animate-slide-up">
+  // 2. Wrap the entire return in createPortal
+  return createPortal(
+    // 3. Bump z-index to [10000] to ensure it is above the dropdown (z-9999) and everything else
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[10000] animate-fade-in backdrop-blur-sm">
+      <div 
+        className="bg-surface border border-white/10 rounded-2xl shadow-2xl w-full max-w-md mx-4 animate-slide-up"
+        // Stop propagation prevents clicks inside the modal from closing it if you have global click listeners
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="p-6 border-b border-white/10">
           <h2 className="text-2xl font-bold text-text-primary">
             {profile ? 'Edit Profile' : 'Create Profile'}
@@ -176,13 +176,14 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose, pro
             <button
               type="submit"
               disabled={isSubmitting || !name.trim()}
-              className="flex-1 btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 btn-primary disabled:opacity-50 disabled:cursor-not-allowed bg-accent text-white px-4 py-3 rounded-lg hover:bg-accent/90 transition-colors font-medium"
             >
               {isSubmitting ? 'Saving...' : profile ? 'Update' : 'Create'}
             </button>
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body // Portal Target
   );
 };

@@ -67,6 +67,8 @@ This will:
 
 ## Building for Production
 
+### Desktop Application
+
 Build optimized binaries for your platform:
 
 ```bash
@@ -77,6 +79,25 @@ This creates installers in `src-tauri/target/release/bundle/`:
 - **macOS**: `.dmg` and `.app` in `dmg/` and `macos/`
 - **Windows**: `.msi` and `.exe` in `msi/` and `nsis/`
 - **Linux**: `.deb`, `.AppImage` in `deb/` and `appimage/`
+
+### Static Website (GitHub Pages)
+
+You can also build the frontend as a static website for GitHub Pages:
+
+```bash
+npm run build:pages
+```
+
+This creates a static website in the `docs/` folder that can be deployed to GitHub Pages.
+
+**Note**: Some Tauri-specific features (like native notifications, system tray, and file system access) won't work in the browser version. The web version is best for previewing the UI/UX.
+
+To enable GitHub Pages:
+1. Push the `docs/` folder to your repository
+2. Go to **Settings** → **Pages** in your GitHub repository
+3. Select **Deploy from a branch**
+4. Choose the `main` branch and `/docs` folder
+5. Save and wait for deployment
 
 ## Usage
 

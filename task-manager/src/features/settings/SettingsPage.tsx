@@ -92,6 +92,8 @@ export const SettingsPage: React.FC = () => {
             <p className="text-sm text-text-secondary mb-3">
               Switch between different profiles to organize your tasks, reminders, and data separately.
             </p>
+            {/* This is not being shown over the card */}
+            
             <ProfileSelector />
           </div>
         </div>

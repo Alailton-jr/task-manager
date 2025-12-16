@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 # Tauri
-src-tauri/target/
+task-manager/src-tauri/target/
 
 # Environment variables
 .env

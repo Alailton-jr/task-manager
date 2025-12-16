@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:pages": "BUILD_FOR_PAGES=true npm run build",
     "preview": "vite preview",
     "tauri": "tauri"
   },
